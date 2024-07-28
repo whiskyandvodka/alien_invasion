@@ -1,5 +1,6 @@
 import sys
 import pygame
+from setting import Setting
 
 
 class AlienInvasion:
@@ -8,7 +9,9 @@ class AlienInvasion:
         """初始化游戏并创建游戏资源"""
         pygame.init()
 
-        self.screen = pygame.display.set_mode((1200, 800))
+        self.setting = Setting()
+        self.screen = pygame.display.set_mode((self.setting.screen_width, self.setting.screen_height))
+        self.clock = pygame.time.Clock()
         pygame.display.set_caption("Alien Invasion")
 
     def run_game(self):
@@ -19,8 +22,13 @@ class AlienInvasion:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+            # 每次循环都重绘屏幕
+            self.screen.fill(self.setting.bg_color)
+
             # 让最近绘制的屏幕可见
             pygame.display.flip()
+            self.clock.tick(60)
+
 
 if __name__ == '__main__':
     # 创建游戏实例并运行游戏
