@@ -252,6 +252,10 @@ class AlienInvasion:
                 self._ship_hit()
                 break
 
+# 测试回滚
+# 测试回滚2
+    def _check_reset(self):
+        pass
 
 if __name__ == '__main__':
     # 创建游戏实例并运行游戏
